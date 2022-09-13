@@ -84,7 +84,7 @@ body {
 
 .hero {
     grid-area: hero;
-    background: url(images/image1.png) no-repeat center center;
+    background: url(images/image1.webp) no-repeat center center;
     background-size: cover;
     height: 25vh;
     width: 100%;
