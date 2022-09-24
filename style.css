@@ -30,6 +30,9 @@
     --fs-500: 1.1rem;
     --fs-600: 1.5rem;
     --fs-800: 2.5rem;
+
+    --background-height: 15vh;
+    --main-height: 85vh;
 }
 
 @media (min-width: 50em) {
@@ -38,12 +41,20 @@
         --fs-500: 1.75rem;
         --fs-600: 2.25rem;
         --fs-800: 4rem;
+        --background-height: 25vh;
+        --main-height: 75vh;
+
     }
 }
 
 strong {
     color: var(--clr-accent-400);
     word-wrap: none;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
 }
 
 .container {
@@ -70,11 +81,6 @@ body {
 }
 
 .body-layout {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-        "hero"
-        "main";
 }
 
 .heading {
@@ -86,13 +92,12 @@ body {
     grid-area: hero;
     background: url(images/image1.webp) no-repeat center center;
     background-size: cover;
-    height: 25vh;
+    height: var(--background-height);
     width: 100%;
-    position: relative;
     color: var(--clr-neutral-100);
     font-size: var(--fs-800);
-    position: relative;
     isolation: isolate;
+    height: var(--background-height);
 }
 
 .hero::after {
@@ -112,9 +117,17 @@ body {
     align-items: center;
 }
 
+body {
+    overflow: hidden;
+}
+
 .main {
     grid-area: main;
     position: relative;
+    margin-top: var(--background-height);
+    padding-top: -var(--background-height);
+    overflow-y: scroll;
+    max-height: var(--main-height);
 }
 
 .card-list {
@@ -133,7 +146,7 @@ body {
     border-style: solid;
     border-width: 1px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     padding: 2em;
     box-shadow: 0.3em 0.3em 0.3em var(--clr-neutral-500);
 }
@@ -149,7 +162,7 @@ body {
     color: var(--clr-neutral-900);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .card-list {
         flex-direction: row;
     }
@@ -159,13 +172,12 @@ body {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
 }
 
 .button {
     border:none;
-    border-radius: 5px;
-    padding: 0.4rem 1.1rem;
+    border-radius: 2em;
+    padding: 0.4rem 2.5rem;
     text-decoration: none;
     font-size: var(--fs-500);
 }
@@ -177,5 +189,19 @@ body {
 
 .button-primary:hover {
     opacity: 0.8;
-    color: var(--clr-neutral-100);
+}
+
+.button-secondary {
+    background-color: white;
+    color: var(--clr-accent-400);
+    border: 1px solid var(--clr-accent-400);
+}
+
+.button-secondary:hover {
+    opacity: 0.8;
+    color: var(--clr-accent-400);
+}
+
+.gap-2 {
+    gap: 0.5rem;
 }
