@@ -137,6 +137,7 @@ body {
     padding-top: -var(--background-height);
     overflow-y: scroll;
     max-height: var(--main-height);
+    padding-bottom: 10vh;
 }
 
 .card-list {
